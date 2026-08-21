@@ -1,0 +1,39 @@
+# Environment & secrets
+.env
+.env.local
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Node
+node_modules/
+.next/
+/out/
+
+# Models & cache
+*.bin
+*.gguf
+*.pt
+*.pth
+*.onnx
+*.tar.gz
+.cache/
+.gradio/
+backend/piper-voices/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Large data files
+*.csv

@@ -1,0 +1,430 @@
+{
+  "session": {
+    "start": "2026-06-22 23:20:36",
+    "end": "2026-06-22 23:35:47",
+    "date": "22/06/2026",
+    "duration_minutes": 15.2,
+    "total_samples": 58284,
+    "sample_rate_hz": 64.0
+  },
+  "ecg": {
+    "avg_hr": 76.6,
+    "min_hr": 67.9,
+    "max_hr": 103.1,
+    "resting_hr": 73.3,
+    "hrv_ms": 86.1,
+    "spo2_avg": 100.0,
+    "timeline": [
+      {
+        "time": "23:20",
+        "hr": 73.9
+      },
+      {
+        "time": "23:21",
+        "hr": 72.5
+      },
+      {
+        "time": "23:21",
+        "hr": 73.1
+      },
+      {
+        "time": "23:22",
+        "hr": 75.4
+      },
+      {
+        "time": "23:22",
+        "hr": 75.2
+      },
+      {
+        "time": "23:23",
+        "hr": 78.3
+      },
+      {
+        "time": "23:23",
+        "hr": 76.0
+      },
+      {
+        "time": "23:24",
+        "hr": 73.9
+      },
+      {
+        "time": "23:24",
+        "hr": 76.4
+      },
+      {
+        "time": "23:25",
+        "hr": 74.6
+      },
+      {
+        "time": "23:25",
+        "hr": 85.9
+      },
+      {
+        "time": "23:26",
+        "hr": 79.0
+      },
+      {
+        "time": "23:26",
+        "hr": 82.4
+      },
+      {
+        "time": "23:27",
+        "hr": 76.8
+      },
+      {
+        "time": "23:27",
+        "hr": 77.2
+      },
+      {
+        "time": "23:28",
+        "hr": 77.6
+      },
+      {
+        "time": "23:28",
+        "hr": 77.8
+      },
+      {
+        "time": "23:29",
+        "hr": 74.8
+      },
+      {
+        "time": "23:29",
+        "hr": 81.1
+      },
+      {
+        "time": "23:30",
+        "hr": 78.7
+      },
+      {
+        "time": "23:30",
+        "hr": 88.6
+      },
+      {
+        "time": "23:31",
+        "hr": 77.2
+      },
+      {
+        "time": "23:31",
+        "hr": 75.5
+      },
+      {
+        "time": "23:32",
+        "hr": 72.0
+      },
+      {
+        "time": "23:32",
+        "hr": 71.7
+      },
+      {
+        "time": "23:33",
+        "hr": 78.8
+      },
+      {
+        "time": "23:33",
+        "hr": 73.5
+      },
+      {
+        "time": "23:34",
+        "hr": 72.4
+      },
+      {
+        "time": "23:34",
+        "hr": 76.1
+      },
+      {
+        "time": "23:35",
+        "hr": 72.9
+      },
+      {
+        "time": "23:35",
+        "hr": 74.6
+      }
+    ],
+    "anomalies": [
+      {
+        "time": "23:30:43",
+        "type": "hr_spike",
+        "value": 103.1,
+        "duration_seconds": 13.8,
+        "source": "ecg",
+        "description": "Nhịp tim tăng cao 103.1 bpm (kéo dài 14s)"
+      }
+    ]
+  },
+  "eeg": {
+    "channels": ["TP9", "AF7", "AF8", "TP10"],
+    "channels_quality": {
+      "TP9": "Tốt",
+      "AF7": "Tốt",
+      "AF8": "Trung bình",
+      "TP10": "Tốt"
+    },
+    "avg_band_powers": {
+      "delta": 21.0,
+      "theta": 25.2,
+      "alpha": 27.1,
+      "beta": 19.1,
+      "gamma": 7.6
+    },
+    "dominant_state": "Thư giãn",
+    "timeline": [
+      {
+        "time": "23:20:36",
+        "alpha": 31.5,
+        "theta": 17.5,
+        "delta": 11.7,
+        "beta": 29.6,
+        "gamma": 9.8
+      },
+      {
+        "time": "23:21:07",
+        "alpha": 29.1,
+        "theta": 20.1,
+        "delta": 12.5,
+        "beta": 28.0,
+        "gamma": 10.4
+      },
+      {
+        "time": "23:21:39",
+        "alpha": 30.6,
+        "theta": 20.9,
+        "delta": 14.3,
+        "beta": 26.0,
+        "gamma": 8.2
+      },
+      {
+        "time": "23:22:10",
+        "alpha": 28.1,
+        "theta": 19.7,
+        "delta": 17.0,
+        "beta": 26.0,
+        "gamma": 9.2
+      },
+      {
+        "time": "23:22:42",
+        "alpha": 32.2,
+        "theta": 16.3,
+        "delta": 13.8,
+        "beta": 27.0,
+        "gamma": 10.7
+      },
+      {
+        "time": "23:23:13",
+        "alpha": 29.4,
+        "theta": 21.0,
+        "delta": 15.6,
+        "beta": 26.6,
+        "gamma": 7.4
+      },
+      {
+        "time": "23:23:44",
+        "alpha": 35.7,
+        "theta": 19.3,
+        "delta": 10.5,
+        "beta": 25.9,
+        "gamma": 8.6
+      },
+      {
+        "time": "23:24:16",
+        "alpha": 31.5,
+        "theta": 22.6,
+        "delta": 13.2,
+        "beta": 25.5,
+        "gamma": 7.2
+      },
+      {
+        "time": "23:24:47",
+        "alpha": 28.5,
+        "theta": 20.5,
+        "delta": 16.9,
+        "beta": 24.6,
+        "gamma": 9.4
+      },
+      {
+        "time": "23:25:19",
+        "alpha": 29.6,
+        "theta": 23.6,
+        "delta": 18.7,
+        "beta": 20.8,
+        "gamma": 7.3
+      },
+      {
+        "time": "23:25:50",
+        "alpha": 26.5,
+        "theta": 23.0,
+        "delta": 17.0,
+        "beta": 26.7,
+        "gamma": 6.8
+      },
+      {
+        "time": "23:26:21",
+        "alpha": 24.4,
+        "theta": 23.8,
+        "delta": 21.4,
+        "beta": 21.5,
+        "gamma": 9.0
+      },
+      {
+        "time": "23:26:53",
+        "alpha": 31.7,
+        "theta": 23.4,
+        "delta": 16.0,
+        "beta": 19.4,
+        "gamma": 9.5
+      },
+      {
+        "time": "23:27:24",
+        "alpha": 24.8,
+        "theta": 24.8,
+        "delta": 21.5,
+        "beta": 19.8,
+        "gamma": 9.2
+      },
+      {
+        "time": "23:27:56",
+        "alpha": 27.1,
+        "theta": 28.5,
+        "delta": 21.1,
+        "beta": 16.9,
+        "gamma": 6.4
+      },
+      {
+        "time": "23:28:27",
+        "alpha": 25.0,
+        "theta": 27.4,
+        "delta": 20.1,
+        "beta": 18.7,
+        "gamma": 8.6
+      },
+      {
+        "time": "23:28:58",
+        "alpha": 28.0,
+        "theta": 27.7,
+        "delta": 19.6,
+        "beta": 17.4,
+        "gamma": 7.2
+      },
+      {
+        "time": "23:29:30",
+        "alpha": 26.2,
+        "theta": 27.6,
+        "delta": 21.7,
+        "beta": 17.5,
+        "gamma": 7.1
+      },
+      {
+        "time": "23:30:01",
+        "alpha": 27.6,
+        "theta": 27.4,
+        "delta": 23.1,
+        "beta": 13.9,
+        "gamma": 8.0
+      },
+      {
+        "time": "23:30:33",
+        "alpha": 24.7,
+        "theta": 27.7,
+        "delta": 22.2,
+        "beta": 19.7,
+        "gamma": 5.8
+      },
+      {
+        "time": "23:31:04",
+        "alpha": 29.5,
+        "theta": 27.7,
+        "delta": 23.5,
+        "beta": 13.0,
+        "gamma": 6.4
+      },
+      {
+        "time": "23:31:36",
+        "alpha": 28.0,
+        "theta": 29.2,
+        "delta": 26.5,
+        "beta": 8.9,
+        "gamma": 7.4
+      },
+      {
+        "time": "23:32:07",
+        "alpha": 25.9,
+        "theta": 26.6,
+        "delta": 24.2,
+        "beta": 14.4,
+        "gamma": 8.8
+      },
+      {
+        "time": "23:32:38",
+        "alpha": 22.2,
+        "theta": 28.2,
+        "delta": 30.8,
+        "beta": 13.1,
+        "gamma": 5.7
+      },
+      {
+        "time": "23:33:10",
+        "alpha": 25.4,
+        "theta": 27.2,
+        "delta": 29.1,
+        "beta": 10.7,
+        "gamma": 7.6
+      },
+      {
+        "time": "23:33:41",
+        "alpha": 22.0,
+        "theta": 32.9,
+        "delta": 26.6,
+        "beta": 15.0,
+        "gamma": 3.5
+      },
+      {
+        "time": "23:34:13",
+        "alpha": 22.6,
+        "theta": 30.4,
+        "delta": 32.4,
+        "beta": 7.6,
+        "gamma": 7.0
+      },
+      {
+        "time": "23:34:44",
+        "alpha": 23.1,
+        "theta": 32.5,
+        "delta": 29.2,
+        "beta": 10.9,
+        "gamma": 4.4
+      },
+      {
+        "time": "23:35:15",
+        "alpha": 19.4,
+        "theta": 31.3,
+        "delta": 29.2,
+        "beta": 15.8,
+        "gamma": 4.3
+      },
+      {
+        "time": "23:35:47",
+        "alpha": 23.8,
+        "theta": 28.3,
+        "delta": 30.3,
+        "beta": 11.1,
+        "gamma": 6.5
+      }
+    ],
+    "anomalies": []
+  },
+  "summary": {
+    "quality_score": 65,
+    "quality_label": "Bình thường",
+    "highlights": ["HRV tốt (86.1 ms) — hệ thần kinh tự chủ ổn định", "SpO2 bình thường (100.0%)"],
+    "anomalies": [
+      {
+        "time": "23:30:43",
+        "type": "hr_spike",
+        "value": 103.1,
+        "duration_seconds": 13.8,
+        "source": "ecg",
+        "description": "Nhịp tim tăng cao 103.1 bpm (kéo dài 14s)"
+      }
+    ],
+    "overall_assessment": "Phiên ghi nhận 15.2 phút (23:20–23:35). Nhịp tim trung bình 76.6 bpm, HRV 86.1 ms, SpO2 100.0%. Đánh giá tổng thể: Bình thường."
+  }
+}

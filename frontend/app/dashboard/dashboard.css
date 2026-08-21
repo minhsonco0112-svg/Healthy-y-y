@@ -1,0 +1,169 @@
+/* ── Dashboard root ── */
+.dash-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg2);
+  font-family: var(--font-public-sans), sans-serif;
+}
+
+/* ── Header ── */
+.dash-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: var(--bg1);
+  border-bottom: 1px solid var(--separator1);
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.dash-header-left {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dash-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--fg0);
+  letter-spacing: -0.02em;
+}
+
+.dash-subtitle {
+  font-size: 12px;
+  color: var(--fg3);
+  font-family: var(--font-commit-mono), monospace;
+}
+
+.dash-score-chip {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ── 2 × 2 grid ── */
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px;
+  flex: 1;
+  overflow: hidden;
+  background: var(--separator1);
+}
+
+/* ── Panel ── */
+.panel {
+  background: var(--bg1);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.panel-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--fg0);
+  letter-spacing: -0.01em;
+}
+
+/* ── Badges ── */
+.badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: var(--font-commit-mono), monospace;
+}
+
+.badge-neutral {
+  background: var(--bgAccentPrimary);
+  color: var(--fgAccent);
+}
+
+.badge-warn {
+  background: var(--bgSerious);
+  color: var(--fgSerious);
+}
+
+.badge-ok {
+  background: var(--bgSuccess);
+  color: var(--fgSuccess);
+}
+
+/* ── Stat row (ECG panel) ── */
+.stat-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 68px;
+  padding: 8px 10px;
+  background: var(--bg2);
+  border-radius: 6px;
+  flex: 1;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: var(--fg4);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: var(--font-commit-mono), monospace;
+  line-height: 1;
+}
+
+.stat-unit {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--fg3);
+}
+
+/* ── Error state ── */
+.dash-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 8px;
+  color: var(--fg2);
+  font-size: 14px;
+}
+
+.dash-error code {
+  background: var(--bg3);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: var(--font-commit-mono), monospace;
+  font-size: 12px;
+  color: var(--fgAccent);
+}
