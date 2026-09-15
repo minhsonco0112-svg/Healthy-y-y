@@ -30,9 +30,10 @@ Everything runs on your own machine:
 8. [Step 7 — Set up the React frontend](#7-set-up-the-react-frontend)
 9. [Step 8 — Run everything](#8-run-everything)
 10. [Using it](#9-using-it)
-11. [Configuration](#configuration)
-12. [Troubleshooting](#troubleshooting)
-13. [Project structure](#project-structure)
+11. [Health Dashboard](#health-dashboard)
+12. [Configuration](#configuration)
+13. [Troubleshooting](#troubleshooting)
+14. [Project structure](#project-structure)
 
 ---
 
@@ -217,8 +218,26 @@ LIVEKIT_URL=ws://localhost:7880
 
 ## 8. Run everything
 
-You need **three** terminals running at once. (Ollama is already running in the
-background as a service from Step 3 — check with `ollama ps`.)
+### Option A — one terminal (recommended)
+
+```bash
+./run.sh
+```
+
+This starts Ollama (if it isn't already running — some setups don't register it as a
+systemd service), LiveKit server, and the frontend in the background (logs go to
+`logs/`), then runs the agent in the **foreground of this same terminal** — so you still see the
+live transcript (`👤 USER` / `🤖 AGENT`) and per‑component timing
+(`📊 TIMINGS | VAD: ... STT: ... LLM: ... TTS: ...`) right here, exactly like the old
+"Terminal 2" below. Press **Ctrl+C** to stop all three at once.
+
+If Ollama, LiveKit, or the frontend fail to start, `run.sh` prints the last lines of
+`logs/ollama.log` / `logs/livekit.log` / `logs/frontend.log` so you can see why.
+
+### Option B — three separate terminals (useful for debugging one piece at a time)
+
+(Ollama is already running in the background as a service from Step 3 — check with
+`ollama ps`.)
 
 **Terminal 1 — LiveKit server:**
 ```bash
@@ -257,6 +276,39 @@ journalctl -u ollama -f
 
 The very first reply after you connect may take a couple of seconds while the model
 warms up; after that, replies are fast.
+
+---
+
+## Health Dashboard
+
+The agent can talk about a person's biometric session (heart rate, HRV, SpO2, EEG
+brain state) recorded from a Muse device, and can pop open a visual dashboard in the
+browser on request.
+
+**1. Generate the health report** from a Muse CSV export:
+
+```bash
+cd backend
+python process_health_data.py [csv_path] [output_json_path]
+```
+
+Defaults: reads the newest `~/Downloads/P111_PPG_MUSE-*.csv` and writes to
+`../frontend/public/health_report.json`. Run this once before starting the agent (or
+whenever you have a new recording) — `agent.py` loads this file at startup.
+
+**2. What the agent does with it:**
+- On startup, `load_health_context()` in `agent.py` reads `health_report.json` and adds
+  a short summary to the agent's context. It's told to only bring this up when asked,
+  and to never present the data as its own.
+- If you say anything containing a health‑related keyword (English or Vietnamese —
+  e.g. "heart rate", "sleep", "sức khỏe", "nhịp tim", "eeg", "dashboard"), the agent
+  sends an `open_dashboard` event over the LiveKit data channel. The frontend
+  (`frontend/components/app.tsx`) shows a toast prompting you to open the dashboard.
+
+**3. View it directly:** open **http://localhost:3000/dashboard** any time.
+
+If no `health_report.json` exists yet, the agent still runs fine — it just skips the
+health context (you'll see `⚠️ No health_report.json found` in the agent log).
 
 ---
 
@@ -335,6 +387,7 @@ Make sure all three services are up and Ollama has the model:
 ```
 Kotai-VoiceAgent/
 ├── README.md                     ← this guide
+├── run.sh                        ← starts everything from one terminal (Option A)
 ├── backend/                      ← the Python voice agent
 │   ├── agent.py                  ← main entry point (STT + LLM + TTS pipeline)
 │   ├── requirements.txt          ← Python dependencies
@@ -344,10 +397,14 @@ Kotai-VoiceAgent/
 │   ├── personas.py               ← the 6 voice personas
 │   ├── select_persona.py         ← helper to switch persona
 │   ├── minimal_logging.py        ← clean conversation logging
-│   └── Kokoro-TTS-Local/         ← Kokoro model (kokoro-v1_0.pth) + 54 voices
+│   ├── suppress_memory_warnings.py ← quiets noisy library warnings
+│   ├── process_health_data.py    ← Muse CSV → frontend/public/health_report.json
+│   └── Kokoro-TTS-Local/         ← Kokoro model (models.py, config.json,
+│                                    kokoro-v1_0.pth) + 54 voices
 └── frontend/                     ← agent-starter-react (Next.js web UI)
     ├── package.json
     ├── .env.local
+    ├── app/dashboard/            ← health dashboard page
     └── app/ components/ hooks/ lib/ ...
 ```
 

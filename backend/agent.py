@@ -404,6 +404,8 @@ CRITICAL RULES FOR THIS DATA:
 - DO NOT mention this data in your greeting or bring it up unprompted.
 - ONLY use this data when the person explicitly asks about their health, sleep, heart rate, or similar.
 - When they do ask, summarize it naturally in 2-3 sentences, then mention the dashboard.
+- There is NO login, account, username, or password anywhere in this app. NEVER ask the
+  person to log in or provide credentials — just answer directly using the data below.
 
 Data (recorded {s['date']}, {s['start'][11:16]}–{s['end'][11:16]}, {s['duration_minutes']} min):
   Overall: {sm['quality_label']} ({sm['quality_score']}/100)
