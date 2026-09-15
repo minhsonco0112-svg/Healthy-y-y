@@ -195,8 +195,10 @@ LIVEKIT_API_KEY=devkey
 LIVEKIT_API_SECRET=secret
 ```
 
-> The Kokoro TTS model (`Kokoro-TTS-Local/kokoro-v1_0.pth`) and its 54 voice files are
-> already included in this package — nothing to download for TTS.
+> The Kokoro TTS voice files (`Kokoro-TTS-Local/voices/*.pt`) are **not** stored in git
+> (too large). The agent downloads a voice automatically from Hugging Face
+> (`hexgrad/Kokoro-82M`) the first time it's used and caches it for next time — you
+> just need internet access the first time you talk with a given persona's voice.
 
 ---
 

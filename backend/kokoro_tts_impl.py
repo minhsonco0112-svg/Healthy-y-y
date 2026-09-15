@@ -205,18 +205,23 @@ class KokoroTTSChunkedStream(tts.ChunkedStream):
             # Generate speech using Kokoro TTS
             def _generate_sync():
                 try:
-                    # Build voice path - voices are in Kokoro-TTS-Local/voices directory
-                    voice_path = Path("Kokoro-TTS-Local/voices").resolve() / f"{voice}.pt"
-                    
-                    if not voice_path.exists():
-                        logger.error(f"Voice file not found: {voice_path}")
-                        return None
+                    # Voices normally live in Kokoro-TTS-Local/voices (already present on
+                    # this machine). If the file is missing — e.g. a fresh clone that
+                    # never had the model files copied over — pass the bare voice name
+                    # instead of a path, and kokoro's own pipeline will download it from
+                    # Hugging Face (hexgrad/Kokoro-82M) and cache it for next time.
+                    voice_path = Path(__file__).parent / "Kokoro-TTS-Local" / "voices" / f"{voice}.pt"
+                    if voice_path.exists():
+                        voice_arg = str(voice_path)
+                        logger.info(f"Generating speech with voice: {voice_path}")
+                    else:
+                        voice_arg = voice
+                        logger.info(f"Voice file not found locally, downloading '{voice}' from Hugging Face...")
 
                     # Use the pipeline as a callable (generator)
-                    logger.info(f"Generating speech with voice: {voice_path}")
                     generator = self._tts._pipeline(
                         clean_text,
-                        voice=str(voice_path),
+                        voice=voice_arg,
                         speed=self._tts._speed,
                         split_pattern=r'\n+'
                     )
